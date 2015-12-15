@@ -1,3 +1,21 @@
 <h1> All Listings </h1>
+
+<ul>
 <% @listings.each do |listing| %>
-  <%= 
+  <li> 
+  <%= listing[:image_url] %>
+  </li>
+  <li> Address: 
+  <%= listing[:address] %>
+  </li>
+  <li> Neighborhood: 
+  <%= listing[:neighborhood] %>
+  </li>
+  <li> Description: 
+  <%= listing[:description] %>
+  </li>
+  <li> Price: $
+  <%= listing[:price_per_night] %>
+  </li>
+<% end %>
+</ul>

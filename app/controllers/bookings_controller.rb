@@ -29,8 +29,8 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to @booking 
+    @booking.update(state: params[:state])
+    redirect_to current_user
   end
 
   def destroy

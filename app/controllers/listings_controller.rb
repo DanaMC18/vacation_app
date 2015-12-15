@@ -37,6 +37,12 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
+  def search 
+    query_neighborhood = params[:q]
+    @listings = Listing.all.select { |listing| listing.neighborhood.include? query_neighborhood }
+    render :index
+  end
+
   # private
   #   def listing_params
   #     params.require(:listings).permit(:image_url, :address, :neighborhood, :description, :price_per_night)

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
 
-  
+  root 'home#main'
+
+  get '/search' => 'listings#search'
 
 end

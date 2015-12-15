@@ -1,4 +1,6 @@
 <%= form_tag('/listings', method:"post") do %>
+  <%= label_tag(:nickname, "Title: ") %>
+  <%= text_field_tag(:nickname) %>
   <%= label_tag(:image_url, "Image URL:") %>
   <%= text_field_tag(:image_url) %>
   <%= label_tag(:address, "Address: ") %>

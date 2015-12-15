@@ -11,6 +11,7 @@
 <h3> Your Bookings </h3>
   <% @user.bookings.each do |booking| %>
     <p> <%= booking.user.email %> </p>
+    <p> <a href="/listings/<%= booking.listing.id %>"> <%= booking.listing.nickname %> </a> </p> 
     <p> <%= booking.start_on %> </p>
     <p> <%= booking.end_on %> </p>
     <p> <%= booking.state %> </p>

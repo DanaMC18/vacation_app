@@ -2,8 +2,8 @@
 
 <ul>
 <% @listings.each do |listing| %>
-  <li> 
-  <%= listing[:image_url] %>
+  <h2><a href="/listings/<%=listing[:id] %>"><%= listing[:nickname] %></a> </h2>
+  <li><img src="<%= listing[:image_url] %>"></li>
   </li>
   <li> Address: 
   <%= listing[:address] %>

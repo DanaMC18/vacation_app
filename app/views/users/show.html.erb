@@ -8,10 +8,16 @@
 
     <% if booking.is_pending? %>
       <p> <%= booking.state %> </p>
-        <%= form_tag('/update', method: 'post') do %>
-        <%= text_field_tag(:q) %>
+        <%= form_tag(booking, method: 'patch') do %>
+        <%= hidden_field_tag 'state', 'confirmed' %>
         <%= submit_tag('Confirm') %>
         <% end %>
+
+        <%= form_tag(booking, method: 'patch') do %>
+        <%= hidden_field_tag 'state', 'denied' %>
+        <%= submit_tag('Deny') %>
+        <% end %>
+
     <% else %>
       <p> <%= booking.state %> </p>
     <% end %>

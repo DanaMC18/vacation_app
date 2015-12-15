@@ -1,4 +1,4 @@
-class BookingsController < ApplicatonController
+class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
@@ -9,13 +9,14 @@ class BookingsController < ApplicatonController
   end
 
   def new
-    @booking = Booking.new
+    @listing = Listing.find(params[:listing_id])
+    @booking = @listing.bookings.build
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(listing_id: params[:listing_id], state: "pending", user: current_user, start_on: params[:start_on], end_on: params[:end_on])
     if @booking.save
-      redirect_to booking_path
+      redirect_to current_user
     else
       render :new
     end

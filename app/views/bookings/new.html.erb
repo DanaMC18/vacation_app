@@ -1,0 +1,9 @@
+
+
+<%= form_tag("/listings/#{@listing.id}/bookings", method: "post") do %>
+  <%= date_field_tag(:start_on) %>
+  <%= date_field_tag(:end_on) %>
+  <%= submit_tag("Create booking") %>
+
+
+<% end %>

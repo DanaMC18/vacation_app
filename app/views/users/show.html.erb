@@ -1,11 +1,20 @@
 <h2> <%= @user.email %>'s account </h2>
 
 <h3> Requests </h3>
-  <% @user.requested_bookings.each do |booking| %>
+  <% @user.requested_bookings.flatten.each do |booking| %>
     <p> <%= booking.user.email %> </p>
     <p> <%= booking.start_on %> </p>
     <p> <%= booking.end_on %> </p>
-    <p> <%= booking.state %> </p>
+
+    <% if booking.is_pending? %>
+      <p> <%= booking.state %> </p>
+        <%= form_tag('/update', method: 'post') do %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag('Confirm') %>
+        <% end %>
+    <% else %>
+      <p> <%= booking.state %> </p>
+    <% end %>
   <% end %>
 
 <h3> Your Bookings </h3>

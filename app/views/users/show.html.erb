@@ -1,0 +1,21 @@
+<h2> <%= @user.email %>'s account </h2>
+
+<h3> Requests </h3>
+  <% @user.requested_bookings.each do |booking| %>
+    <p> <%= booking.user.email %> </p>
+    <p> <%= booking.start_on %> </p>
+    <p> <%= booking.end_on %> </p>
+    <p> <%= booking.state %> </p>
+  <% end %>
+
+<h3> Your Bookings </h3>
+  <% @user.bookings.each do |booking| %>
+    <p> <%= booking.user.email %> </p>
+    <p> <%= booking.start_on %> </p>
+    <p> <%= booking.end_on %> </p>
+    <p> <%= booking.state %> </p>
+  <% end %>
+
+<%= image_tag(@user.image_url) %>
+
+<p> <%= @user.bio %> </p>

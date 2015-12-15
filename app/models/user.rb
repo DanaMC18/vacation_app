@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   def requested_bookings
     listings.map{|listing| listing.bookings}
   end
+
 end

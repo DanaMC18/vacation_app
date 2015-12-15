@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(image_url: params[:image_url], address: params[:address], neighborhood: params[:neighborhood], description: params[:description], price_per_night: params[:price_per_night],nickname: params[:nickname])
+    @listing = Listing.new(image_url: params[:image_url], address: params[:address], neighborhood: params[:neighborhood], description: params[:description], price_per_night: params[:price_per_night],nickname: params[:nickname], user: current_user)
     if @listing.save
       redirect_to '/listings'
     else

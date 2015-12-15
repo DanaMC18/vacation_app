@@ -5,4 +5,9 @@ class Booking < ActiveRecord::Base
   def owner
     listing.user
   end
+
+  def is_pending?
+    state == "pending"
+  end
+
 end
